@@ -1,4 +1,4 @@
-#Notes
+#Notes.
 
 Offset helps to declare where we should start counting (skip first to elements means offset 2)
 
