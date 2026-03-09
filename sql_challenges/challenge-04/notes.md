@@ -1,4 +1,4 @@
-# SQL Window Functions Quick Reference
+# SQL Window Functions Quick Reference.
 
 ## The `OVER` Clause
 The `OVER` clause defines the window (set of rows) that the function will operate on.

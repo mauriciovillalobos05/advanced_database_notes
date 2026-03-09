@@ -1,4 +1,4 @@
--- free sql
+--- free sql
 
 -- Complete the following query to return the count and average weight of bricks for each shape:
 select b.*,
