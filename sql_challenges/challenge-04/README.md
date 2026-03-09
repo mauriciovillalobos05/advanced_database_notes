@@ -1,4 +1,4 @@
-### From freesql.com complete 
+### From freesql.com complete:
 - Analytic Functions: Databases for Developers
 
 ### From datalemur

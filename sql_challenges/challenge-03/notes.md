@@ -28,7 +28,7 @@ When you want to calculate aggregates for specific categories rather than the en
 * **`GROUP BY`**: Groups the rows depending on matching values in one or more columns. 
 * **`HAVING`**: Filters grouped data. If you want to apply a condition to the result of an *aggregate operation*, you must use `HAVING` instead of `WHERE`.
 
-> **⚠️ The Golden Rule of Grouping:** All unaggregated columns in your `SELECT` clause MUST be included in your `GROUP BY` clause.
+> **The Golden Rule of Grouping:** All unaggregated columns in your `SELECT` clause MUST be included in your `GROUP BY` clause.
 
 ---
 
