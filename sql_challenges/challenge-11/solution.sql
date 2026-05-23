@@ -1,3 +1,5 @@
+-- EXERCISE 1
+
 -- 1. What relationships should `Comment` have?
 
 -- it has a 1 to n relationship with tasks and users, so we add a column user_id and task_id in our comments table.
@@ -10,6 +12,19 @@
 
 -- we should have a trigger to delete all comments with the task_id of the deleted task.
 
+-- EXERCISE 2
+
+-- 1. What does `upgrade()` do?
+
+-- upgrade states the changes and updates needed to be executed with the new version
+
+-- 2. What does `downgrade()` do?
+
+-- downgrade has the changes we need to do to roll back to a past version
+
+-- 3. What happens if you downgrade this migration?
+
+-- we would delete the comments table and the column added to tasks
 
 def upgrade():
     op.add_column(
@@ -77,19 +92,53 @@ class Comment(Base):
 
 ---
 
--- 1. What does `upgrade()` do?
+-- EXERCISE 3
 
--- upgrade states the changes and updates needed to be executed with the new version
+devops_team = Team(
+    name = 'DevOps',
+    description = 'Team in charge of the CI/CD'
+)
 
--- 2. What does `downgrade()` do?
+session.add(devops_team)
+session.commit()
 
--- downgrade has the changes we need to do to roll back to a past version
+new_user = User(
+    username = 'diana_ops',
+    email = 'diana@ops.ops',
+    full_name = 'Diana Reyes',
+    team_id = devops_team.id
 
--- 3. What happens if you downgrade this migration?
+)
+session.add(new_user)
+session.commit()
 
--- we would delete the comments table and the column added to tasks
+task1 = Task(
+    priority='low',
+    title='migrate to OCI',
+    description='Migrate to OCI',
+    assignee=new_user
+)
+
+task2 = Task(
+    priority='high',
+    title='Deploy FastAPI backend',
+    description='Deploy the FastAPI backend to Oracle Cloud Infrastructure',
+    assignee=new_user
+)
+
+task3 = Task(
+    priority='critical',
+    title='Fix production database outage',
+    description='Investigate and restore database connectivity in production',
+    assignee=new_user
+)
+
+session.add_all([task1, task2, task3])
+session.commit()
 
 --
+
+-- EXERCISE 4
 
 -- 1. What happens to the column?
 
@@ -100,6 +149,8 @@ class Comment(Base):
 -- all the other data stays as is
 
 --
+
+-- EXERCISE 5
 
 -- 1. Why use ORM instead of raw SQL?
 -- ORMs like SQLAlchemy allow developers to work with Python objects
